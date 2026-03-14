@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+
+    <title>PillWise – Medication Tracker</title>
+    <meta
+      name="description"
+      content="PillWise helps you track medications, build dose streaks, and never miss a pill. Support and privacy hub."
+    />
+
+    <meta property="og:title" content="PillWise – Medication Tracker" />
+    <meta
+      property="og:description"
+      content="Track your meds, build streaks, stay on schedule. A calm medication tracker for iOS."
+    />
+    <meta property="og:type" content="website" />
+
+    <link rel="stylesheet" href="../assets/css/site.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header-inner">
+          <span class="brand">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span class="brand-name">Foster Apps</span>
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="overview">
+        <div class="container">
+          <div class="hero-grid">
+            <div>
+              <div class="kicker">
+                <span class="dot" aria-hidden="true"></span>
+                PillWise for iOS
+              </div>
+              <h1 class="h1">PillWise support</h1>
+              <p class="subhead">
+                This page is the official support and privacy hub for PillWise.
+              </p>
+
+              <div class="hr"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="support">
+        <div class="container">
+          <div style="display: flex; gap: 4em;">
+            <h2 class="section-title" style="margin: auto 0;">Support</h2>
+            <a class="button primary" href="mailto:fosterappshelp+pillwise@gmail.com" style="text-align: center;">Email Support</a>
+          </div>
+          <p class="muted">
+            For support, email <a href="mailto:fosterappshelp+pillwise@gmail.com">fosterappshelp+pillwise@gmail.com</a>.
+          </p>
+          <p class="small" style="margin-top: 8px;">To help fix issues quickly, please include:</p>
+          <ul class="small" style="margin-top: 6px; padding-left: 18px;">
+            <li>A short description of what you were doing.</li>
+            <li>Steps to reproduce the issue, if you know them.</li>
+            <li>What you expected to happen vs what actually happened.</li>
+            <li>Your device model and iOS version.</li>
+            <li>Any screenshots that might help.</li>
+          </ul>
+
+          <div class="hr" style="margin-top: 24px;"></div>
+          <h2 style="margin-top: 20px;">Privacy policy</h2>
+          <p class="muted">
+            Read the full policy at the <a href="privacy/">PillWise privacy page</a>.
+          </p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container">
+          <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;">
+            <div>© <span id="year"></span> Foster Apps · <span class="muted">PillWise</span></div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="../assets/js/site.js"></script>
+    <script>
+      document.getElementById('year').textContent = String(new Date().getFullYear());
+    </script>
+  </body>
+</html>
