@@ -12,19 +12,22 @@
     />
 
     <link rel="stylesheet" href="../../assets/css/site.css" />
+    <link rel="canonical" href="https://fosterapps.com/planly/privacy/" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%237c5cff'/><stop offset='1' stop-color='%232fd3ff'/></linearGradient></defs><rect x='6' y='6' width='52' height='52' rx='16' fill='url(%23g)'/><path d='M22 42V22h14c4 0 7 3 7 7s-3 7-7 7H28v6h-6zm6-12h8c1.7 0 3-1.3 3-3s-1.3-3-3-3h-8v6z' fill='white' opacity='0.95'/></svg>" />
   </head>
 
   <body>
     <header class="header">
       <div class="container">
         <div class="header-inner">
-          <span class="brand">
+          <a class="brand" href="/">
             <span class="brand-mark" aria-hidden="true"></span>
             <span class="brand-name">Foster Apps</span>
-          </span>
+          </a>
 
           <nav class="nav" aria-label="Planly">
-            <a href="../">Back</a>
+            <a href="/">Home</a>
+            <a href="../">Planly</a>
           </nav>
         </div>
       </div>
@@ -34,14 +37,14 @@
       <section class="section" id="privacy">
         <div class="container">
           <h1 class="section-title">Planly – Privacy Policy</h1>
-          <p class="small muted">Last updated: <span id="last-updated">2026</span></p>
+          <p class="small muted">Last updated: April 1, 2026</p>
 
           <div class="hr"></div>
 
           <div class="card" style="margin-bottom:14px;">
             <div class="pill">Summary</div>
             <p>
-              Planly is designed to respect your privacy. This page is a simple, human-readable overview. For App Store review, you can also generate a formal policy using your preferred generator and replace this content.
+              Planly is designed to respect your privacy. This page is a simple, human-readable overview of how Planly handles your data.
             </p>
           </div>
 
@@ -49,7 +52,7 @@
             <div class="pill">Data collection</div>
             <h3>What Planly collects</h3>
             <p>
-              Planly primarily stores your tasks and settings on your device and, if enabled, in iCloud so they can sync across your Apple devices. Planly does not create its own account system.
+              Planly is developed and operated by Foster Apps LLC. Planly primarily stores your tasks and settings on your device and, if enabled, in iCloud so they can sync across your Apple devices. Planly does not create its own account system.
             </p>
             <p>
               Planly does not:
@@ -74,7 +77,7 @@
             <h3>Support email</h3>
             <p>
               When you email support at
-              <a href="mailto:fosterappshelp+planly@gmail.com">fosterappshelp+planly@gmail.com</a>,
+              <a href="mailto:support+planly@fosterapps.com">support+planly@fosterapps.com</a>,
               the contents of your email are stored in your email provider’s systems. Please avoid including sensitive personal information in support requests.
             </p>
           </div>
@@ -94,7 +97,7 @@
               If you have any questions about this policy or how Planly handles data, contact:
             </p>
             <p class="small">
-              Email: <a href="mailto:fosterappshelp+planly@gmail.com">fosterappshelp+planly@gmail.com</a>
+              Email: <a href="mailto:support+planly@fosterapps.com">support+planly@fosterapps.com</a>
             </p>
           </div>
         </div>
@@ -103,7 +106,7 @@
       <footer class="footer">
         <div class="container">
           <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;">
-            <div>© <span id="year"></span> Foster Apps · <span class="muted">Planly</span></div>
+            <div>© <span id="year"></span> Foster Apps LLC · <span class="muted">Planly</span></div>
             <div style="display:flex;gap:14px;flex-wrap:wrap;">
               <a href="../">Back to Planly</a>
             </div> 
@@ -114,7 +117,6 @@
 
     <script>
       document.getElementById('year').textContent = String(new Date().getFullYear());
-      document.getElementById('last-updated').textContent = String(new Date().getFullYear());
     </script>
   </body>
 </html>
