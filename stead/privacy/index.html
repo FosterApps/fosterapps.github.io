@@ -11,7 +11,7 @@
       content="Privacy policy for Stead, a home maintenance tracker for iOS by Foster Apps."
     />
 
-    <link rel="stylesheet" href="../../assets/css/site.css" />
+    <link rel="stylesheet" href="../../assets/css/site.css?v=3" />
     <link rel="canonical" href="https://fosterapps.com/stead/privacy/" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%237c5cff'/><stop offset='1' stop-color='%232fd3ff'/></linearGradient></defs><rect x='6' y='6' width='52' height='52' rx='16' fill='url(%23g)'/><path d='M22 42V22h14c4 0 7 3 7 7s-3 7-7 7H28v6h-6zm6-12h8c1.7 0 3-1.3 3-3s-1.3-3-3-3h-8v6z' fill='white' opacity='0.95'/></svg>" />
   </head>
@@ -26,8 +26,16 @@
           </a>
 
           <nav class="nav" aria-label="Stead">
-            <a href="/">Home</a>
             <a href="../">Stead</a>
+            <details class="nav-dropdown">
+              <summary class="nav-dropdown-toggle">Apps <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 4l3.5 3.5L9 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+              <ul class="nav-dropdown-menu">
+                <li><a href="/planly/">Planly</a></li>
+                <li><a href="/stead/">Stead</a></li>
+                <li><a href="/soniceject/">SonicEject</a></li>
+                <li><a href="/qrgen/">QR Creator</a></li>
+              </ul>
+            </details>
           </nav>
         </div>
       </div>

@@ -102,7 +102,15 @@ a { color: inherit; }
 .nav {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 4px;
+}
+
+.nav-sep {
+  width: 1px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.12);
+  margin: 0 6px;
+  flex-shrink: 0;
 }
 
 .nav a {
@@ -117,6 +125,162 @@ a { color: inherit; }
   color: var(--text);
   background: rgba(255, 255, 255, 0.06);
 }
+
+/* ── Apps dropdown ───────────────────────────────────────────────────────── */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: inherit;
+  line-height: 1;
+}
+
+.nav-dropdown-toggle:hover,
+.nav-dropdown-toggle[aria-expanded="true"] {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-dropdown-toggle svg {
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.nav-dropdown-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 230px;
+  background: rgba(8, 10, 20, 0.96);
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 18px;
+  padding: 7px;
+  list-style: none;
+  margin: 0;
+  box-shadow:
+    0 32px 72px rgba(0, 0, 0, 0.75),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 1px 0 rgba(255, 255, 255, 0.08) inset;
+  z-index: 100;
+  transform-origin: top right;
+  /* hidden state */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0.93) translateY(-8px);
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.18s;
+}
+
+.nav-dropdown-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: scale(1) translateY(0);
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0s;
+}
+
+.nav-dropdown-menu li {
+  list-style: none;
+}
+
+.nav-dropdown-menu li a {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 12px;
+  transition: background 0.13s ease;
+}
+
+/* App icon badge */
+.nav-app-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  flex-shrink: 0;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+}
+
+.card-app-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 15px;
+  object-fit: cover;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+/* Two-line text block */
+.nav-app-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
+  min-width: 0;
+}
+
+.nav-app-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.nav-app-sub {
+  font-size: 11.5px;
+  color: var(--muted2);
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Arrow — hidden until hover */
+.nav-app-arrow {
+  flex-shrink: 0;
+  color: var(--muted2);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.13s ease, transform 0.13s ease;
+}
+
+.nav-dropdown-menu li a:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.nav-dropdown-menu li a:hover .nav-app-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Close when clicking outside via JS */
 
 .hero {
   padding: 64px 0 8px;

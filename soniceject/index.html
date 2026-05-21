@@ -23,7 +23,7 @@
     <meta name="twitter:image" content="https://fosterapps.com/soniceject/assets/iPhone%201.png" />
     <link rel="canonical" href="https://fosterapps.com/soniceject/" />
 
-    <link rel="stylesheet" href="../assets/css/site.css" />
+    <link rel="stylesheet" href="../assets/css/site.css?v=3" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23082040'/><stop offset='1' stop-color='%2300B4FF'/></linearGradient></defs><rect x='6' y='6' width='52' height='52' rx='16' fill='url(%23g)'/><rect x='15' y='28' width='6' height='8' rx='3' fill='white' opacity='0.9'/><rect x='25' y='22' width='6' height='20' rx='3' fill='white' opacity='0.9'/><rect x='35' y='18' width='6' height='28' rx='3' fill='white' opacity='0.9'/><rect x='45' y='24' width='6' height='16' rx='3' fill='white' opacity='0.9'/></svg>" />
 
     <style>
@@ -98,7 +98,15 @@
           </a>
 
           <nav class="nav" aria-label="Primary">
-            <a href="/">Home</a>
+            <details class="nav-dropdown">
+              <summary class="nav-dropdown-toggle">Apps <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 4l3.5 3.5L9 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+              <ul class="nav-dropdown-menu">
+                <li><a href="/planly/">Planly</a></li>
+                <li><a href="/stead/">Stead</a></li>
+                <li><a href="/soniceject/">SonicEject</a></li>
+                <li><a href="/qrgen/">QR Creator</a></li>
+              </ul>
+            </details>
             <a href="mailto:support@fosterapps.com">Contact</a>
           </nav>
         </div>
@@ -119,7 +127,7 @@
               SonicEject uses precision sound frequencies to push water, dust, and debris out of your iPhone speaker — no shaking, no rice, no waiting.
             </p>
             <div class="actions" style="justify-content:center;">
-              <a class="button primary" href="https://apps.apple.com/app/soniceject-speaker-cleaner/id6747846505" target="_blank" rel="noopener">
+              <a class="button primary" href="https://apps.apple.com/us/app/remove-water-speaker-cleaner/id6762480310" target="_blank" rel="noopener">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                 Download Free
               </a>
@@ -224,7 +232,7 @@
           <div style="max-width:540px;margin:0 auto;text-align:center;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.10);border-radius:28px;padding:52px 40px;">
             <h2 style="font-size:clamp(24px,3vw,36px);margin:0 0 14px;letter-spacing:-0.02em;">Free to download.</h2>
             <p class="subhead" style="font-size:16px;margin:0 0 28px;">One tap. Thirty seconds. Crystal clear sound.</p>
-            <a class="button primary" href="https://apps.apple.com/app/soniceject-speaker-cleaner/id6747846505" target="_blank" rel="noopener" style="font-size:16px;padding:14px 28px;">
+            <a class="button primary" href="https://apps.apple.com/us/app/remove-water-speaker-cleaner/id6762480310" target="_blank" rel="noopener" style="font-size:16px;padding:14px 28px;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
               Get SonicEject on the App Store
             </a>
@@ -266,7 +274,7 @@
       </footer>
     </main>
 
-    <script src="../assets/js/site.js"></script>
+    <script src="../assets/js/site.js?v=3"></script>
     <script>
       document.getElementById('year').textContent = String(new Date().getFullYear());
     </script>

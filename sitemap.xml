@@ -35,4 +35,14 @@
     <lastmod>2026-05-12</lastmod>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://fosterapps.com/qrgen/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fosterapps.com/qrgen/privacy/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <priority>0.6</priority>
+  </url>
 </urlset>
