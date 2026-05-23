@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+
+    <title>Headache Journal – Migraine &amp; Headache Tracker for iPhone</title>
+    <meta
+      name="description"
+      content="Log every headache in seconds. Track pain level, triggers, duration, and symptoms — then spot the patterns that help you finally understand what's causing them."
+    />
+
+    <meta property="og:title" content="Headache Journal – Migraine Tracker" />
+    <meta
+      property="og:description"
+      content="Log attacks, find triggers, and share doctor-ready PDF reports. The simplest migraine diary on iOS."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://fosterapps.com/headache/" />
+    <meta property="og:image" content="https://fosterapps.com/headache/assets/screen-1.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://fosterapps.com/headache/assets/screen-1.jpg" />
+    <link rel="canonical" href="https://fosterapps.com/headache/" />
+
+    <link rel="stylesheet" href="../assets/css/site.css?v=3" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%239040D0'/><stop offset='1' stop-color='%23C070FF'/></linearGradient></defs><rect x='6' y='6' width='52' height='52' rx='16' fill='url(%23g)'/><path d='M32 14c-9.9 0-18 8.1-18 18 0 5.8 2.8 11 7.1 14.3V50h21.8v-3.7C47.2 43 50 37.8 50 32c0-9.9-8.1-18-18-18z' fill='white' opacity='0.9'/></svg>" />
+
+    <style>
+      /* ── Headache-specific accent overrides ─────────────────────── */
+      .accent-purple { color: #9040D0; }
+      .hero-gradient {
+        background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(144,64,208,0.22) 0%, transparent 70%);
+      }
+      .screenshots-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 16px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .screenshots-grid .screen-frame {
+        border-radius: 24px;
+        overflow: hidden;
+        border: 1px solid rgba(144,64,208,0.20);
+        box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+        aspect-ratio: 9 / 19.5;
+        background: #000;
+      }
+      .screenshots-grid .screen-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        display: block;
+      }
+      .screenshots-grid .screen-frame:nth-child(even) {
+        margin-top: 32px;
+      }
+      @media (max-width: 680px) {
+        .screenshots-grid {
+          grid-template-columns: repeat(5, 160px);
+          overflow-x: auto;
+          padding-bottom: 16px;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+        }
+        .screenshots-grid::-webkit-scrollbar { display: none; }
+        .screenshots-grid .screen-frame:nth-child(even) { margin-top: 0; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header-inner">
+          <a class="brand" href="/">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span class="brand-name">Foster Apps</span>
+          </a>
+
+          <nav class="nav" aria-label="Primary">
+            <details class="nav-dropdown">
+              <summary class="nav-dropdown-toggle">Apps <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 4l3.5 3.5L9 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+              <ul class="nav-dropdown-menu">
+                <li><a href="/planly/">Planly</a></li>
+                <li><a href="/stead/">Stead</a></li>
+                <li><a href="/soniceject/">SonicEject</a></li>
+                <li><a href="/qrgen/">QR Creator</a></li>
+                <li><a href="/milestone/">Milestone Counter</a></li>
+                <li><a href="/headache/">Headache Journal</a></li>
+              </ul>
+            </details>
+            <a href="mailto:support+headache@fosterapps.com">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ── Hero ───────────────────────────────────────────────────── -->
+      <section class="hero hero-gradient" id="overview">
+        <div class="container">
+          <div style="max-width:680px;margin:0 auto;text-align:center;padding:72px 0 48px;">
+            <div style="display:flex;justify-content:center;margin-bottom:24px;">
+              <img src="assets/icon.png" alt="Headache Journal app icon" style="width:96px;height:96px;border-radius:22px;box-shadow:0 12px 36px rgba(144,64,208,0.45);" />
+            </div>
+            <div class="kicker" style="margin:0 auto 20px;">
+              <span class="dot" aria-hidden="true"></span>
+              Available on the App Store
+            </div>
+            <h1 class="h1" style="margin-bottom:18px;">Finally understand<br>your headaches.</h1>
+            <p class="subhead" style="max-width:540px;margin:0 auto 32px;">
+              Log every attack in seconds. Track pain, triggers, and symptoms — then spot the patterns that help you and your doctor break the cycle.
+            </p>
+            <div class="actions" style="justify-content:center;">
+              <a class="button primary" href="https://apps.apple.com/app/headache-journal-migraine-log/id6748004128" target="_blank" rel="noopener" style="background:#9040D0;border-color:#9040D0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                Download Free
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Screenshots ────────────────────────────────────────────── -->
+      <section style="padding:0 0 64px;">
+        <div class="container">
+          <div class="screenshots-grid">
+            <div class="screen-frame">
+              <img src="assets/screen-1.jpg" alt="Headache Journal log screen with intensity grid and trigger tags" loading="lazy" />
+            </div>
+            <div class="screen-frame">
+              <img src="assets/screen-2.jpg" alt="Headache Journal insights showing top triggers with percentage bars" loading="lazy" />
+            </div>
+            <div class="screen-frame">
+              <img src="assets/screen-3.jpg" alt="Headache Journal history tab with severity badges and durations" loading="lazy" />
+            </div>
+            <div class="screen-frame">
+              <img src="assets/screen-4.jpg" alt="Headache Journal trigger detail and pattern charts" loading="lazy" />
+            </div>
+            <div class="screen-frame">
+              <img src="assets/screen-5.jpg" alt="Headache Journal PDF export and doctor report view" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Features ───────────────────────────────────────────────── -->
+      <section style="padding:0 0 80px;">
+        <div class="container">
+          <div style="max-width:640px;margin:0 auto;text-align:center;margin-bottom:48px;">
+            <h2 class="h1" style="font-size:clamp(28px,3.5vw,42px);margin-bottom:14px;">Log fast. Understand more.</h2>
+            <p class="subhead" style="font-size:17px;max-width:480px;margin:0 auto;">
+              Every feature is designed for the moment your head is pounding — not when you're feeling fine.
+            </p>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:860px;margin:0 auto;">
+            <div class="card" style="padding:28px;">
+              <div style="font-size:28px;margin-bottom:14px;">⚡</div>
+              <h3 style="font-size:18px;margin-bottom:8px;">Log in Seconds</h3>
+              <p>Pain level, location, triggers, duration — all tappable chips. A full entry takes under 30 seconds even when you're hurting.</p>
+            </div>
+            <div class="card" style="padding:28px;">
+              <div style="font-size:28px;margin-bottom:14px;">🔍</div>
+              <h3 style="font-size:18px;margin-bottom:8px;">Trigger Patterns</h3>
+              <p>See which triggers — stress, sleep, food, weather, hormones — correlate with your worst attacks over time.</p>
+            </div>
+            <div class="card" style="padding:28px;">
+              <div style="font-size:28px;margin-bottom:14px;">📄</div>
+              <h3 style="font-size:18px;margin-bottom:8px;">Doctor PDF Reports</h3>
+              <p>Export a clean summary of your attack history — dates, severity, duration, triggers, and medications — ready to share at your next appointment.</p>
+            </div>
+            <div class="card" style="padding:28px;">
+              <div style="font-size:28px;margin-bottom:14px;">💊</div>
+              <h3 style="font-size:18px;margin-bottom:8px;">Medication Tracking</h3>
+              <p>Record what you took and whether it helped. Find out which treatments actually work for you.</p>
+            </div>
+            <div class="card" style="padding:28px;">
+              <div style="font-size:28px;margin-bottom:14px;">📊</div>
+              <h3 style="font-size:18px;margin-bottom:8px;">Trends &amp; Insights</h3>
+              <p>Monthly frequency chart, average pain score, longest headache-free streak, and a breakdown of your worst trigger combinations.</p>
+            </div>
+            <div class="card" style="padding:28px;">
+              <div style="font-size:28px;margin-bottom:14px;">🔒</div>
+              <h3 style="font-size:18px;margin-bottom:8px;">Fully Private</h3>
+              <p>Your health data stays on your device. No account, no cloud, no ads. Optionally back up to your personal iCloud.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Pro callout ────────────────────────────────────────────── -->
+      <section style="padding:0 0 80px;">
+        <div class="container">
+          <div style="max-width:680px;margin:0 auto;">
+            <div class="card" style="padding:40px;border-color:rgba(144,64,208,0.40);background:rgba(144,64,208,0.08);">
+              <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+                <span style="background:#9040D0;color:#fff;font-size:12px;font-weight:700;letter-spacing:0.06em;padding:4px 10px;border-radius:20px;">PRO</span>
+                <h3 style="font-size:20px;margin:0;">Headache Journal Pro</h3>
+              </div>
+              <p style="margin-bottom:20px;line-height:1.6;">Unlock unlimited history, PDF export, trigger correlation charts, and medication tracking. Start with a 3-day free trial — no charge until the trial ends.</p>
+              <ul class="small" style="padding-left:18px;line-height:2;margin:0;">
+                <li>Unlimited attack history (free tier: last 30 days)</li>
+                <li>Doctor-ready PDF export</li>
+                <li>Trigger correlation depth charts</li>
+                <li>Medication tracking &amp; effectiveness log</li>
+                <li>iCloud backup &amp; restore</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Download CTA ───────────────────────────────────────────── -->
+      <section style="padding:0 0 96px;">
+        <div class="container">
+          <div style="max-width:540px;margin:0 auto;text-align:center;background:rgba(144,64,208,0.10);border:1px solid rgba(144,64,208,0.30);border-radius:28px;padding:52px 40px;">
+            <h2 style="font-size:clamp(24px,3vw,36px);margin:0 0 14px;letter-spacing:-0.02em;">Free to download.</h2>
+            <p class="subhead" style="font-size:16px;margin:0 0 28px;">Stop guessing. Start tracking.</p>
+            <a class="button primary" href="https://apps.apple.com/app/headache-journal-migraine-log/id6748004128" target="_blank" rel="noopener" style="font-size:16px;padding:14px 28px;background:#9040D0;border-color:#9040D0;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              Get Headache Journal on the App Store
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Support ────────────────────────────────────────────────── -->
+      <section class="section" id="support" style="padding-bottom:80px;">
+        <div class="container" style="max-width:680px;">
+          <div style="display:flex;gap:2em;align-items:center;margin-bottom:12px;">
+            <h2 class="section-title" style="margin:0;">Support</h2>
+            <a class="button" href="mailto:support+headache@fosterapps.com">Email Support</a>
+          </div>
+          <p class="muted">Email <a href="mailto:support+headache@fosterapps.com">support+headache@fosterapps.com</a> and include:</p>
+          <ul class="small muted" style="margin-top:6px;padding-left:18px;line-height:1.9;">
+            <li>A short description of what you were doing.</li>
+            <li>Steps to reproduce the issue, if you know them.</li>
+            <li>What you expected to happen vs what actually happened.</li>
+            <li>Your device model and iOS version.</li>
+            <li>Any screenshots that might help.</li>
+          </ul>
+          <div class="hr" style="margin-top:24px;"></div>
+          <h2 style="margin-top:20px;">Privacy policy</h2>
+          <p class="muted">Read the full policy at the <a href="privacy/">Headache Journal privacy page</a>.</p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container">
+          <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;">
+            <div>© <span id="year"></span> Foster Apps LLC · <span class="muted">Headache Journal</span></div>
+            <div style="display:flex;gap:14px;flex-wrap:wrap;">
+              <a href="/">Home</a>
+              <a href="privacy/">Privacy</a>
+              <a href="mailto:support+headache@fosterapps.com">Contact</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="../assets/js/site.js?v=3"></script>
+    <script>
+      document.getElementById('year').textContent = String(new Date().getFullYear());
+    </script>
+  </body>
+</html>
