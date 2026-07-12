@@ -8,7 +8,7 @@
     <title>Foster Apps — Calm iOS Apps &amp; Custom Websites</title>
     <meta
       name="description"
-      content="Foster Apps builds calm, focused iOS apps and custom business websites. Hand-crafted by a solo indie developer."
+      content="Foster Apps builds premium iOS apps and custom business websites. Focused tools, designed with care."
     />
 
     <meta property="og:title" content="Foster Apps" />
@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/css/site.css?v=5" />
+    <link rel="stylesheet" href="assets/css/site.css?v=6" />
 
     <!-- Indigo favicon — gradient updated from old purple/cyan -->
     <link rel="icon" type="image/png" href="/assets/FosterAppsLogo.png" />
@@ -105,6 +105,18 @@
                     </svg>
                   </a>
                 </li>
+                <li>
+                  <a href="phpusd/">
+                    <img class="nav-app-icon" src="phpusd/assets/icon.png" alt="PHP to USD Conversion icon">
+                    <span class="nav-app-text">
+                      <span class="nav-app-name">PHP to USD Conversion</span>
+                      <span class="nav-app-sub">Peso &amp; dollar exchange rate</span>
+                    </span>
+                    <svg class="nav-app-arrow" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                      <path d="M2.5 5h5m0 0L5 2.5M7.5 5L5 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                </li>
               </ul>
             </div>
             <span class="nav-sep" aria-hidden="true"></span>
@@ -118,26 +130,42 @@
 
       <!-- ── Hero ───────────────────────────────────────────────── -->
       <section class="hero">
-        <div class="container">
-          <p class="kicker">Independent iOS apps &amp; websites</p>
-          <h1 class="h1">Clean, professional apps<br>and websites, <em>quality<br>made with care.</em></h1>
-          <p class="subhead">
-            Focused iOS tools and hand-crafted business websites &mdash;
-            built by one person, designed to last.
-          </p>
-          <div class="actions">
-            <a class="button primary" href="#apps">Browse apps</a>
-            <a class="button" href="#web">Build a Site</a>
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="kicker">Premium iOS apps &amp; websites</p>
+            <h1 class="h1">Focused tools,<br><em>built to last.</em></h1>
+            <p class="subhead">
+              Calm, precise iOS apps and hand-crafted business websites &mdash;
+              designed with care, built to last.
+            </p>
+            <div class="actions">
+              <a class="button primary" href="#apps">Browse apps</a>
+              <a class="button" href="#web">Build a Site</a>
+            </div>
           </div>
-        </div>
 
-        <!-- Strip sits outside .container for full-section-width fade -->
-        <div class="hero-screens" aria-hidden="true">
-          <img src="stead/assets/screen-1.jpg"    alt="" width="180" loading="eager">
-          <img src="headache/assets/screen-1.jpg" alt="" width="180" loading="eager">
-          <img src="qrgen/assets/iPhone 1.jpg"    alt="" width="180" loading="eager">
-          <img src="soniceject/assets/iPhone 1.png" alt="" width="180" loading="eager">
-          <img src="headache/assets/screen-2.jpg" alt="" width="180" loading="eager">
+          <!-- Off-center device + one secondary UI card at a different depth.
+               One confident visual beats a lineup of five competing app
+               screenshots — the card demonstrates a feature in context
+               without competing with the phone as a second "hero". -->
+          <div class="hero-visual">
+            <button type="button" class="hero-nav hero-nav-prev" aria-label="Previous app">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M7.5 2.5L3 5l4.5 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="hero-device" aria-hidden="true">
+              <img src="assets/hero/phpusd-hero.jpg" alt="" width="360" loading="eager">
+            </div>
+            <div class="hero-float-card reveal-eager" style="--reveal-delay: 480ms" aria-hidden="true">
+              <div class="hero-float-card-top">
+                <span class="hero-float-icon">🔔</span>
+                <strong>Rate Alert</strong>
+              </div>
+              <span>Notify when 1 USD hits ₱65</span>
+            </div>
+            <button type="button" class="hero-nav hero-nav-next" aria-label="Next app">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2.5 2.5L7 5l-4.5 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
         </div>
       </section>
 
@@ -147,7 +175,7 @@
           <div class="stats-strip stats-strip--single">
             <div class="stats-strip-item">
               <strong id="app-count">5</strong>
-              <span>Apps published and counting</span>
+              <span>apps live on the App Store</span>
             </div>
           </div>
         </div>
@@ -156,7 +184,7 @@
       <!-- ── Apps ───────────────────────────────────────────────── -->
       <section class="apps-section" id="apps">
         <div class="container">
-          <span class="section-kicker">Our Apps</span>
+          <span class="section-kicker">iOS Apps</span>
           <h2 class="section-h2">Tools that work quietly.</h2>
           <div class="app-grid">
 
@@ -225,6 +253,19 @@
               <span class="app-link">View app &rarr;</span>
             </a>
 
+            <a class="app-card" href="phpusd/">
+              <img class="card-app-icon" src="phpusd/assets/icon.png" alt="PHP to USD Conversion app icon">
+              <div class="app-top">
+                <span class="app-name">PHP to USD Conversion</span>
+              </div>
+              <p class="app-category">Currency Converter</p>
+              <p class="app-desc">
+                Live Philippine peso to US dollar exchange rate, rate alerts,
+                saved amounts, and 90 days of history. No ads, no guessing.
+              </p>
+              <span class="app-link">View app &rarr;</span>
+            </a>
+
           </div>
         </div>
       </section>
@@ -271,10 +312,15 @@
           <div class="about-inner">
             <span class="section-kicker">About</span>
             <p class="about-pull">
-              Foster Apps builds focused iOS apps and professional websites
-              for businesses that want quality work — not templates,
+              Foster Apps makes premium iOS tools and professional websites
+              for people who want quality work &mdash; not templates,
               not bloat, not lock-in.
             </p>
+            <div class="about-links">
+              <a href="mailto:support@fosterapps.com">Get in touch</a>
+              <span class="about-sep" aria-hidden="true">&middot;</span>
+              <a href="#apps">Browse all apps</a>
+            </div>
           </div>
         </div>
       </section>
@@ -298,7 +344,7 @@
       </div>
     </footer>
 
-    <script src="assets/js/site.js?v=5"></script>
+    <script src="assets/js/site.js?v=6"></script>
     <script>
       document.getElementById('year').textContent = String(new Date().getFullYear());
       // Dynamic app count — driven by nav dropdown so it stays in sync automatically
