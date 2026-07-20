@@ -2,6 +2,8 @@
 
 Static HTML/CSS site for fosterapps.com. No build step — edit files directly, push to deploy.
 
+> **SEO work (new pages, keywords, guides, sitemap, JSON-LD):** follow [`SEO_BIBLE.md`](SEO_BIBLE.md) — it is the complete playbook and per-app status log. This file covers mechanical asset/CSS maintenance only.
+
 ## Directory structure
 
 ```

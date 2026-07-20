@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+
+    <title>HVAC Ductulator – Duct Sizing Calculator</title>
+    <meta
+      name="description"
+      content="Size a round or rectangular HVAC duct from airflow in seconds. Reverse mode, branch calculator, every duct material, and job-based saving — right from the job site."
+    />
+
+    <meta property="og:title" content="HVAC Ductulator" />
+    <meta
+      property="og:description"
+      content="Round and rectangular duct sizing from CFM and target velocity, plus friction rate — free. Reverse mode, branch calculator, and every duct material with Pro."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://fosterapps.com/duct/" />
+    <meta property="og:image" content="https://fosterapps.com/duct/assets/screen-1.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://fosterapps.com/duct/assets/screen-1.jpg" />
+    <link rel="canonical" href="https://fosterapps.com/duct/" />
+
+    <link rel="stylesheet" href="../assets/css/site.css?v=6" />
+    <link rel="icon" type="image/png" href="/assets/FosterAppsLogo.png" />
+
+    <style>
+      /* ── HVAC Ductulator accent overrides (ocean blue, matches app theme) ── */
+      .accent-ocean { color: #00c6ff; }
+      .hero-gradient {
+        background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(0,198,255,0.22) 0%, transparent 70%);
+      }
+      .screenshots-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .screenshots-grid .screen-frame {
+        border-radius: 24px;
+        overflow: hidden;
+        border: 1px solid rgba(0,198,255,0.20);
+        box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+        aspect-ratio: 9 / 19.5;
+        background: #000;
+      }
+      .screenshots-grid .screen-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        display: block;
+      }
+      .screenshots-grid .screen-frame:nth-child(even) {
+        margin-top: 32px;
+      }
+      @media (max-width: 680px) {
+        .screenshots-grid {
+          grid-template-columns: repeat(4, 160px);
+          overflow-x: auto;
+          padding-bottom: 16px;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+        }
+        .screenshots-grid::-webkit-scrollbar { display: none; }
+        .screenshots-grid .screen-frame:nth-child(even) { margin-top: 0; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header-inner">
+          <a class="brand" href="/">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span class="brand-name">Foster Apps</span>
+          </a>
+
+          <nav class="nav" aria-label="Primary">
+            <div class="nav-dropdown">
+              <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+                Apps
+                <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
+                  <path d="M2 4l3.5 3.5L9 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <ul class="nav-dropdown-menu">
+                <li>
+                  <a href="/planly/">
+                    <img class="nav-app-icon" src="../planly/assets/icon.png" alt="Planly icon">
+                    <span class="nav-app-text">
+                      <span class="nav-app-name">Planly</span>
+                      <span class="nav-app-sub">Focused daily planner</span>
+                    </span>
+                    <svg class="nav-app-arrow" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2.5 5h5m0 0L5 2.5M7.5 5L5 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="/stead/">
+                    <img class="nav-app-icon" src="../stead/assets/icon.png" alt="Stead icon">
+                    <span class="nav-app-text">
+                      <span class="nav-app-name">Stead</span>
+                      <span class="nav-app-sub">Home maintenance tracker</span>
+                    </span>
+                    <svg class="nav-app-arrow" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2.5 5h5m0 0L5 2.5M7.5 5L5 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="/soniceject/">
+                    <img class="nav-app-icon" src="../soniceject/assets/icon.png" alt="SonicEject icon">
+                    <span class="nav-app-text">
+                      <span class="nav-app-name">SonicEject</span>
+                      <span class="nav-app-sub">Speaker cleaner</span>
+                    </span>
+                    <svg class="nav-app-arrow" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2.5 5h5m0 0L5 2.5M7.5 5L5 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="/qrgen/">
+                    <img class="nav-app-icon" src="../qrgen/assets/icon.png" alt="QR Creator icon">
+                    <span class="nav-app-text">
+                      <span class="nav-app-name">QR Creator</span>
+                      <span class="nav-app-sub">Instant QR code generator</span>
+                    </span>
+                    <svg class="nav-app-arrow" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2.5 5h5m0 0L5 2.5M7.5 5L5 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="/headache/">
+                    <img class="nav-app-icon" src="../headache/assets/icon.png" alt="Headache Journal icon">
+                    <span class="nav-app-text">
+                      <span class="nav-app-name">Headache Journal</span>
+                      <span class="nav-app-sub">Migraine &amp; headache tracker</span>
+                    </span>
+                    <svg class="nav-app-arrow" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2.5 5h5m0 0L5 2.5M7.5 5L5 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="/phpusd/">
+                    <img class="nav-app-icon" src="../phpusd/assets/icon.png" alt="PHP to USD Conversion icon">
+                    <span class="nav-app-text">
+                      <span class="nav-app-name">PHP to USD Conversion</span>
+                      <span class="nav-app-sub">Peso &amp; dollar exchange rate</span>
+                    </span>
+                    <svg class="nav-app-arrow" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2.5 5h5m0 0L5 2.5M7.5 5L5 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="/duct/">
+                    <img class="nav-app-icon" src="../duct/assets/icon.png" alt="HVAC Ductulator icon">
+                    <span class="nav-app-text">
+                      <span class="nav-app-name">HVAC Ductulator</span>
+                      <span class="nav-app-sub">Duct sizing calculator</span>
+                    </span>
+                    <svg class="nav-app-arrow" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2.5 5h5m0 0L5 2.5M7.5 5L5 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <span class="nav-sep" aria-hidden="true"></span>
+            <a href="mailto:support@fosterapps.com">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ── Hero ───────────────────────────────────────────────────── -->
+      <section class="hero hero-gradient" id="overview">
+        <div class="container">
+          <div style="max-width:680px;margin:0 auto;text-align:center;padding:72px 0 48px;">
+            <div style="display:flex;justify-content:center;margin-bottom:24px;">
+              <img src="assets/icon.png" alt="HVAC Ductulator app icon" style="width:96px;height:96px;border-radius:22px;box-shadow:0 12px 36px rgba(0,198,255,0.45);" />
+            </div>
+            <div class="kicker" style="margin:0 auto 20px;">
+              <span class="dot" aria-hidden="true"></span>
+              Available on the App Store
+            </div>
+            <h1 class="h1" style="margin-bottom:18px;">Stop guessing<br>duct sizes.</h1>
+            <p class="subhead" style="max-width:540px;margin:0 auto 32px;">
+              Size a round or rectangular duct from airflow in seconds — plus the friction rate, right from the job site. No account, no ads, no guesswork.
+            </p>
+            <div class="actions" style="justify-content:center;">
+              <a class="button primary" href="https://apps.apple.com/app/id6790622859" target="_blank" rel="noopener" style="background:#00c6ff;border-color:#00c6ff;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                Download Free
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Screenshots ────────────────────────────────────────────── -->
+      <section style="padding:0 0 64px;">
+        <div class="container">
+          <div class="screenshots-grid">
+            <div class="screen-frame">
+              <img src="assets/screen-1.jpg" alt="HVAC Ductulator round duct sizing with CFM, velocity, and friction rate" loading="lazy" />
+            </div>
+            <div class="screen-frame">
+              <img src="assets/screen-2.jpg" alt="HVAC Ductulator reverse mode showing airflow capacity for a known duct size" loading="lazy" />
+            </div>
+            <div class="screen-frame">
+              <img src="assets/screen-3.jpg" alt="HVAC Ductulator Saved tab with sizings grouped by job" loading="lazy" />
+            </div>
+            <div class="screen-frame">
+              <img src="assets/screen-4.jpg" alt="HVAC Ductulator rectangular duct sizing and equivalent diameter" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Features ───────────────────────────────────────────────── -->
+      <section style="padding:0 0 80px;">
+        <div class="container">
+          <div style="max-width:640px;margin:0 auto;text-align:center;margin-bottom:48px;">
+            <h2 class="h1" style="font-size:clamp(28px,3.5vw,42px);margin-bottom:14px;">Built for the job site.</h2>
+            <p class="subhead" style="font-size:17px;max-width:480px;margin:0 auto;">
+              Every feature is designed for HVAC contractors and DIY installs who need a real number before they cut metal.
+            </p>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:860px;margin:0 auto;">
+            <div class="card" style="padding:28px;">
+              <div style="font-size:28px;margin-bottom:14px;">📐</div>
+              <h3 style="font-size:18px;margin-bottom:8px;">Round &amp; Rectangular</h3>
+              <p>Size from CFM and target velocity, both shapes, fully free. Friction rate included with every result.</p>
+            </div>
+            <div class="card" style="padding:28px;">
+              <div style="font-size:28px;margin-bottom:14px;">🔄</div>
+              <h3 style="font-size:18px;margin-bottom:8px;">Reverse Mode</h3>
+              <p>Already have a duct size on hand? See exactly what airflow it can carry — built for service calls and retrofits.</p>
+            </div>
+            <div class="card" style="padding:28px;">
+              <div style="font-size:28px;margin-bottom:14px;">🌳</div>
+              <h3 style="font-size:18px;margin-bottom:8px;">Branch Calculator</h3>
+              <p>Size a trunk and every branch run at once, with a warning if the numbers don't add up.</p>
+            </div>
+            <div class="card" style="padding:28px;">
+              <div style="font-size:28px;margin-bottom:14px;">🧱</div>
+              <h3 style="font-size:18px;margin-bottom:8px;">Every Duct Material</h3>
+              <p>Galvanized, flex duct, PVC, and fiberboard — each with its own accurate friction rate.</p>
+            </div>
+            <div class="card" style="padding:28px;">
+              <div style="font-size:28px;margin-bottom:14px;">💾</div>
+              <h3 style="font-size:18px;margin-bottom:8px;">Save by Job</h3>
+              <p>Every sizing saved and grouped by job, ready to reopen or hand off to the next visit.</p>
+            </div>
+            <div class="card" style="padding:28px;">
+              <div style="font-size:28px;margin-bottom:14px;">🔒</div>
+              <h3 style="font-size:18px;margin-bottom:8px;">Fully Private</h3>
+              <p>No account. No login. Your sizings and job data stay on your device — not on a server.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Pro callout ────────────────────────────────────────────── -->
+      <section style="padding:0 0 80px;">
+        <div class="container">
+          <div style="max-width:680px;margin:0 auto;">
+            <div class="card" style="padding:40px;border-color:rgba(0,198,255,0.40);background:rgba(0,198,255,0.08);">
+              <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+                <span style="background:#00c6ff;color:#fff;font-size:12px;font-weight:700;letter-spacing:0.06em;padding:4px 10px;border-radius:20px;">PRO</span>
+                <h3 style="font-size:20px;margin:0;">HVAC Ductulator Pro</h3>
+              </div>
+              <p style="margin-bottom:20px;line-height:1.6;">Unlock reverse mode, the branch calculator, every duct material, and unlimited saved sizings. Start with a 3-day free trial on the weekly plan — no charge until the trial ends.</p>
+              <ul class="small" style="padding-left:18px;line-height:2;margin:0;">
+                <li>Reverse mode — know what an existing duct can move</li>
+                <li>Branch calculator for full trunk-and-branch runs</li>
+                <li>Flex duct, PVC, and fiberboard, in addition to galvanized</li>
+                <li>Unlimited saved sizings and PDF export, organized by job</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Download CTA ───────────────────────────────────────────── -->
+      <section style="padding:0 0 96px;">
+        <div class="container">
+          <div style="max-width:540px;margin:0 auto;text-align:center;background:rgba(0,198,255,0.10);border:1px solid rgba(0,198,255,0.30);border-radius:28px;padding:52px 40px;">
+            <h2 style="font-size:clamp(24px,3vw,36px);margin:0 0 14px;letter-spacing:-0.02em;">Free to download.</h2>
+            <p class="subhead" style="font-size:16px;margin:0 0 28px;">Get the numbers you need before you cut metal.</p>
+            <a class="button primary" href="https://apps.apple.com/app/id6790622859" target="_blank" rel="noopener" style="font-size:16px;padding:14px 28px;background:#00c6ff;border-color:#00c6ff;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              Get HVAC Ductulator on the App Store
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Support ────────────────────────────────────────────────── -->
+      <section class="section" id="support" style="padding-bottom:80px;">
+        <div class="container" style="max-width:680px;">
+          <div style="display:flex;gap:2em;align-items:center;margin-bottom:12px;">
+            <h2 class="section-title" style="margin:0;">Support</h2>
+            <a class="button" href="mailto:support@fosterapps.com">Email Support</a>
+          </div>
+          <p class="muted">Email <a href="mailto:support@fosterapps.com">support@fosterapps.com</a> and include:</p>
+          <ul class="small muted" style="margin-top:6px;padding-left:18px;line-height:1.9;">
+            <li>A short description of what you were doing.</li>
+            <li>Steps to reproduce the issue, if you know them.</li>
+            <li>What you expected to happen vs what actually happened.</li>
+            <li>Your device model and iOS version.</li>
+            <li>Any screenshots that might help.</li>
+          </ul>
+          <div class="hr" style="margin-top:24px;"></div>
+          <h2 style="margin-top:20px;">Privacy policy</h2>
+          <p class="muted">Read the full policy at the <a href="privacy/">HVAC Ductulator privacy page</a>.</p>
+          <h2 style="margin-top:20px;">Terms of use</h2>
+          <p class="muted">Read the full terms at the <a href="terms/">HVAC Ductulator terms page</a>.</p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container">
+          <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;">
+            <div>© <span id="year"></span> Foster Apps LLC · <span class="muted">HVAC Ductulator</span></div>
+            <div style="display:flex;gap:14px;flex-wrap:wrap;">
+              <a href="/">Home</a>
+              <a href="privacy/">Privacy</a>
+              <a href="terms/">Terms</a>
+              <a href="mailto:support@fosterapps.com">Contact</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="../assets/js/site.js?v=6"></script>
+    <script>
+      document.getElementById('year').textContent = String(new Date().getFullYear());
+    </script>
+  </body>
+</html>
