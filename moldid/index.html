@@ -5,26 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="dark" />
 
-    <title>Stead – Home Maintenance Tracker for iPhone</title>
+    <title>Mold Identifier – AI Mold ID &amp; Danger-Tier Reference for iPhone</title>
     <meta
       name="description"
-      content="Never forget an HVAC filter change or gutter cleaning again. Stead tracks every home maintenance task, service record, and seasonal reminder in one place."
+      content="Snap a photo of suspicious mold and get an instant AI read on what it is and how worried to be — plus a full 53-species compendium you can browse anytime, not just after a scan."
     />
 
-    <meta property="og:title" content="Stead – Home Maintenance Tracker" />
+    <meta property="og:title" content="Mold Identifier – AI Mold ID" />
     <meta
       property="og:description"
-      content="Never forget a home maintenance task again. Log service records, set recurring reminders, and keep your home running smoothly."
+      content="Know exactly what it is — and how worried to be. AI mold identification with a real household mold compendium, risk tiers, and next-step guidance."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://fosterapps.com/stead/" />
-    <meta property="og:image" content="https://fosterapps.com/stead/assets/screen-1.jpg" />
+    <meta property="og:url" content="https://fosterapps.com/moldid/" />
+    <meta property="og:image" content="https://fosterapps.com/moldid/assets/screen-1.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://fosterapps.com/stead/assets/screen-1.jpg" />
-    <link rel="canonical" href="https://fosterapps.com/stead/" />
+    <meta name="twitter:image" content="https://fosterapps.com/moldid/assets/screen-1.jpg" />
+    <link rel="canonical" href="https://fosterapps.com/moldid/" />
 
     <link rel="stylesheet" href="../assets/css/site.css?v=8" />
     <link rel="icon" type="image/png" href="/assets/FosterAppsLogo.png" />
+
+    <style>
+      /* ── Mold Identifier-specific accent overrides ───────────────── */
+      .accent-amber { color: #E9932B; }
+      .hero-gradient {
+        background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(233,147,43,0.22) 0%, transparent 70%);
+      }
+      .screenshots-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 16px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .screenshots-grid .screen-frame {
+        border-radius: 24px;
+        overflow: hidden;
+        border: 1px solid rgba(233,147,43,0.20);
+        box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+        aspect-ratio: 9 / 19.5;
+        background: #000;
+      }
+      .screenshots-grid .screen-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        display: block;
+      }
+      .screenshots-grid .screen-frame:nth-child(even) {
+        margin-top: 32px;
+      }
+      @media (max-width: 680px) {
+        .screenshots-grid {
+          grid-template-columns: repeat(5, 160px);
+          overflow-x: auto;
+          padding-bottom: 16px;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+        }
+        .screenshots-grid::-webkit-scrollbar { display: none; }
+        .screenshots-grid .screen-frame:nth-child(even) { margin-top: 0; }
+      }
+    </style>
   </head>
 
   <body>
@@ -108,7 +152,7 @@
               </ul>
             </div>
             <span class="nav-sep" aria-hidden="true"></span>
-            <a href="mailto:support@fosterapps.com">Contact</a>
+            <a href="mailto:support+moldid@fosterapps.com">Contact</a>
           </nav>
         </div>
       </div>
@@ -116,19 +160,22 @@
 
     <main>
       <!-- ── Hero ───────────────────────────────────────────────────── -->
-      <section class="hero" id="overview">
+      <section class="hero hero-gradient" id="overview">
         <div class="container">
           <div style="max-width:680px;margin:0 auto;text-align:center;padding:72px 0 48px;">
+            <div style="display:flex;justify-content:center;margin-bottom:24px;">
+              <img src="assets/icon.png" alt="Mold Identifier app icon" style="width:96px;height:96px;border-radius:22px;box-shadow:0 12px 36px rgba(233,147,43,0.45);" />
+            </div>
             <div class="kicker" style="margin:0 auto 20px;">
               <span class="dot" aria-hidden="true"></span>
               Available on the App Store
             </div>
-            <h1 class="h1" style="margin-bottom:18px;">Your home,<br>always in order.</h1>
-            <p class="subhead" style="max-width:520px;margin:0 auto 32px;">
-              Stead tracks every maintenance task, service record, and seasonal reminder — so nothing slips through the cracks.
+            <h1 class="h1" style="margin-bottom:18px;">Know exactly what<br>that spot is.</h1>
+            <p class="subhead" style="max-width:540px;margin:0 auto 32px;">
+              Snap a photo of suspicious mold and get an instant AI read on what it is and how worried to be — backed by a real 53-species household mold compendium, not a one-line guess.
             </p>
             <div class="actions" style="justify-content:center;">
-              <a class="button primary" href="https://apps.apple.com/us/app/stead-home-maintenance-tracker/id6760983524" target="_blank" rel="noopener">
+              <a class="button primary" href="https://apps.apple.com/app/id6793710155" target="_blank" rel="noopener" style="background:#E9932B;border-color:#E9932B;">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                 Download Free
               </a>
@@ -140,15 +187,21 @@
       <!-- ── Screenshots ────────────────────────────────────────────── -->
       <section style="padding:0 0 64px;">
         <div class="container">
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:860px;margin:0 auto;">
-            <div style="border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);box-shadow:0 24px 60px rgba(0,0,0,0.55);">
-              <img src="assets/screen-1.jpg" alt="Stead dashboard showing upcoming maintenance tasks" style="width:100%;display:block;" loading="lazy" />
+          <div class="screenshots-grid">
+            <div class="screen-frame">
+              <img src="assets/screen-1.jpg" alt="Mold Identifier scan result showing risk tier, AI confidence, and an alternate possible match" loading="lazy" />
             </div>
-            <div style="border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);box-shadow:0 24px 60px rgba(0,0,0,0.55);margin-top:32px;">
-              <img src="assets/screen-2.jpg" alt="Stead task detail with service log" style="width:100%;display:block;" loading="lazy" />
+            <div class="screen-frame">
+              <img src="assets/screen-2.jpg" alt="Mold Identifier compendium list of household mold types with risk-tier filters" loading="lazy" />
             </div>
-            <div style="border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);box-shadow:0 24px 60px rgba(0,0,0,0.55);">
-              <img src="assets/screen-3.jpg" alt="Stead reminders and schedule view" style="width:100%;display:block;" loading="lazy" />
+            <div class="screen-frame">
+              <img src="assets/screen-3.jpg" alt="Mold Identifier species detail page with reference photo, risk tier, and description" loading="lazy" />
+            </div>
+            <div class="screen-frame">
+              <img src="assets/screen-4.jpg" alt="Mold Identifier scan history list with saved results and dates" loading="lazy" />
+            </div>
+            <div class="screen-frame">
+              <img src="assets/screen-5.jpg" alt="Mold Identifier scan screen with photo capture and optional context notes" loading="lazy" />
             </div>
           </div>
         </div>
@@ -158,28 +211,63 @@
       <section style="padding:0 0 80px;">
         <div class="container">
           <div style="max-width:640px;margin:0 auto;text-align:center;margin-bottom:48px;">
-            <h2 class="h1" style="font-size:clamp(28px,3.5vw,42px);margin-bottom:14px;">Everything your home needs,<br>nothing it doesn't.</h2>
+            <h2 class="h1" style="font-size:clamp(28px,3.5vw,42px);margin-bottom:14px;">A real answer, not a guess.</h2>
+            <p class="subhead" style="font-size:17px;max-width:480px;margin:0 auto;">
+              Most mold apps stop at a one-line verdict. Mold Identifier goes further — every feature is built to earn your trust in the result.
+            </p>
           </div>
           <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:860px;margin:0 auto;">
             <div class="card" style="padding:28px;">
-              <div style="font-size:28px;margin-bottom:14px;">🗓️</div>
-              <h3 style="font-size:18px;margin-bottom:8px;">Recurring Reminders</h3>
-              <p>Set it once. Stead reminds you when filters, checks, and seasonal tasks are due — automatically.</p>
+              <div style="font-size:28px;margin-bottom:14px;">📷</div>
+              <h3 style="font-size:18px;margin-bottom:8px;">Instant AI Identification</h3>
+              <p>Snap a photo and get a species match, risk tier, and next steps in seconds — add a quick note (e.g. "near a leaky pipe") for a sharper result.</p>
             </div>
             <div class="card" style="padding:28px;">
-              <div style="font-size:28px;margin-bottom:14px;">📋</div>
-              <h3 style="font-size:18px;margin-bottom:8px;">Service Log</h3>
-              <p>Keep a full history of what was done, when, and by whom. Invaluable when selling your home.</p>
+              <div style="font-size:28px;margin-bottom:14px;">📖</div>
+              <h3 style="font-size:18px;margin-bottom:8px;">53-Species Compendium</h3>
+              <p>Browse common household mold types anytime — not just after a scan. Real reference photos, risk tiers, common locations, and look-alikes.</p>
             </div>
             <div class="card" style="padding:28px;">
-              <div style="font-size:28px;margin-bottom:14px;">🏠</div>
-              <h3 style="font-size:18px;margin-bottom:8px;">Built for Homeowners</h3>
-              <p>HVAC, plumbing, appliances, gutters — all the systems that matter, organized the way you think.</p>
+              <div style="font-size:28px;margin-bottom:14px;">🎯</div>
+              <h3 style="font-size:18px;margin-bottom:8px;">Honest Confidence</h3>
+              <p>When a result isn't clear-cut, you'll see that too — plus the closest alternate match. Never a guess dressed up as certainty.</p>
             </div>
             <div class="card" style="padding:28px;">
-              <div style="font-size:28px;margin-bottom:14px;">🔒</div>
-              <h3 style="font-size:18px;margin-bottom:8px;">Private by Design</h3>
-              <p>Your home data stays on your device. No account required, no data sold, no nonsense.</p>
+              <div style="font-size:28px;margin-bottom:14px;">🛡️</div>
+              <h3 style="font-size:18px;margin-bottom:8px;">Danger-Tier Guidance</h3>
+              <p>Every result comes with a clear risk tier and what to do next — from basic cleaning to calling a professional inspector.</p>
+            </div>
+            <div class="card" style="padding:28px;">
+              <div style="font-size:28px;margin-bottom:14px;">🕒</div>
+              <h3 style="font-size:18px;margin-bottom:8px;">Scan History</h3>
+              <p>Every result is saved automatically, so you can track a spot over time or revisit a past scan whenever you need it.</p>
+            </div>
+            <div class="card" style="padding:28px;">
+              <div style="font-size:28px;margin-bottom:14px;">📄</div>
+              <h3 style="font-size:18px;margin-bottom:8px;">Exportable Reports</h3>
+              <p>Export a scan report — useful for landlords, insurance claims, or your own records.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Pro callout ────────────────────────────────────────────── -->
+      <section style="padding:0 0 80px;">
+        <div class="container">
+          <div style="max-width:680px;margin:0 auto;">
+            <div class="card" style="padding:40px;border-color:rgba(233,147,43,0.40);background:rgba(233,147,43,0.08);">
+              <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+                <span style="background:#E9932B;color:#fff;font-size:12px;font-weight:700;letter-spacing:0.06em;padding:4px 10px;border-radius:20px;">PRO</span>
+                <h3 style="font-size:20px;margin:0;">Mold Identifier Pro</h3>
+              </div>
+              <p style="margin-bottom:20px;line-height:1.6;">Unlock unlimited scans, full compendium access, and report export. Start with a 3-day free trial — no charge until the trial ends.</p>
+              <ul class="small" style="padding-left:18px;line-height:2;margin:0;">
+                <li>Unlimited mold scans (free tier: your first scan)</li>
+                <li>Full danger-tier reference library</li>
+                <li>Step-by-step next-action guidance</li>
+                <li>Complete scan history, always saved</li>
+                <li>Exportable scan reports</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -188,12 +276,12 @@
       <!-- ── Download CTA ───────────────────────────────────────────── -->
       <section style="padding:0 0 96px;">
         <div class="container">
-          <div style="max-width:540px;margin:0 auto;text-align:center;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.10);border-radius:28px;padding:52px 40px;">
+          <div style="max-width:540px;margin:0 auto;text-align:center;background:rgba(233,147,43,0.10);border:1px solid rgba(233,147,43,0.30);border-radius:28px;padding:52px 40px;">
             <h2 style="font-size:clamp(24px,3vw,36px);margin:0 0 14px;letter-spacing:-0.02em;">Free to download.</h2>
-            <p class="subhead" style="font-size:16px;margin:0 0 28px;">Stop forgetting. Start keeping up.</p>
-            <a class="button primary" href="https://apps.apple.com/us/app/stead-home-maintenance-tracker/id6760983524" target="_blank" rel="noopener" style="font-size:16px;padding:14px 28px;">
+            <p class="subhead" style="font-size:16px;margin:0 0 28px;">Stop guessing. Know what it is.</p>
+            <a class="button primary" href="https://apps.apple.com/app/id6793710155" target="_blank" rel="noopener" style="font-size:16px;padding:14px 28px;background:#E9932B;border-color:#E9932B;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-              Get Stead on the App Store
+              Get Mold Identifier on the App Store
             </a>
           </div>
         </div>
@@ -202,31 +290,32 @@
       <!-- ── Support ────────────────────────────────────────────────── -->
       <section class="section" id="support" style="padding-bottom:80px;">
         <div class="container" style="max-width:680px;">
-          <div style="display: flex; gap: 2em; align-items:center; margin-bottom:12px;">
+          <div style="display:flex;gap:2em;align-items:center;margin-bottom:12px;">
             <h2 class="section-title" style="margin:0;">Support</h2>
-            <a class="button" href="mailto:support+stead@fosterapps.com">Email Support</a>
+            <a class="button" href="mailto:support+moldid@fosterapps.com">Email Support</a>
           </div>
-          <p class="muted">Email <a href="mailto:support+stead@fosterapps.com">support+stead@fosterapps.com</a> and include:</p>
-          <ul class="small muted" style="margin-top: 6px; padding-left: 18px;line-height:1.9;">
+          <p class="muted">Email <a href="mailto:support+moldid@fosterapps.com">support+moldid@fosterapps.com</a> and include:</p>
+          <ul class="small muted" style="margin-top:6px;padding-left:18px;line-height:1.9;">
             <li>A short description of what you were doing.</li>
             <li>Steps to reproduce the issue, if you know them.</li>
             <li>What you expected to happen vs what actually happened.</li>
             <li>Your device model and iOS version.</li>
             <li>Any screenshots that might help.</li>
           </ul>
-          <div class="hr" style="margin-top: 24px;"></div>
-          <h2 style="margin-top: 20px;">Privacy policy</h2>
-          <p class="muted">Read the full policy at the <a href="privacy/">Stead privacy page</a>.</p>
+          <div class="hr" style="margin-top:24px;"></div>
+          <h2 style="margin-top:20px;">Privacy policy</h2>
+          <p class="muted">Read the full policy at the <a href="privacy/">Mold Identifier privacy page</a>.</p>
         </div>
       </section>
 
       <footer class="footer">
         <div class="container">
           <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;">
-            <div>© <span id="year"></span> Foster Apps LLC · <span class="muted">Stead</span></div>
+            <div>© <span id="year"></span> Foster Apps LLC · <span class="muted">Mold Identifier</span></div>
             <div style="display:flex;gap:14px;flex-wrap:wrap;">
               <a href="/">Home</a>
-              <a href="mailto:support@fosterapps.com">Contact</a>
+              <a href="privacy/">Privacy</a>
+              <a href="mailto:support+moldid@fosterapps.com">Contact</a>
             </div>
           </div>
         </div>
