@@ -91,10 +91,12 @@ done
 
 All sub-pages must reference the same version as `index.html`:
 ```html
-<link rel="stylesheet" href="../assets/css/site.css?v=5" />
-<script src="../assets/js/site.js?v=5"></script>
+<link rel="stylesheet" href="../assets/css/site.css?v=8" />
+<script src="../assets/js/site.js?v=8"></script>
 ```
-When `site.css` or `site.js` changes, bump `v=N` in **every** HTML file. Currently v5.
+When `site.css` or `site.js` changes, bump `v=N` in **every** HTML file. Currently v8.
+
+**Nav dropdown is generated, not hand-written** — every page's `<ul class="nav-dropdown-menu">` ships empty in HTML and is populated at runtime by the `NAV_APPS` list at the top of `site.js`. Add a new app there once; it appears on every page's dropdown automatically. Never hand-add `<li>` entries to a page's HTML — they'll be silently overwritten. The homepage's `<body>` carries `data-nav-root="true"` so the generator knows to use root-relative hrefs (`slug/`) there instead of the sub-page relative form (`../slug/`).
 
 Sub-pages that use `<details>/<summary>` nav are outdated — the correct pattern is `<div class="nav-dropdown"><button ...>` driven by site.js.
 

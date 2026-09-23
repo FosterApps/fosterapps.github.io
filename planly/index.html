@@ -23,7 +23,7 @@
     <meta name="twitter:image" content="https://fosterapps.com/planly/assets/screen-1.jpg" />
     <link rel="canonical" href="https://fosterapps.com/planly/" />
 
-    <link rel="stylesheet" href="../assets/css/site.css?v=3" />
+    <link rel="stylesheet" href="../assets/css/site.css?v=8" />
     <link rel="icon" type="image/png" href="/assets/FosterAppsLogo.png" />
   </head>
 
@@ -37,15 +37,19 @@
           </a>
 
           <nav class="nav" aria-label="Primary">
-            <details class="nav-dropdown">
-              <summary class="nav-dropdown-toggle">Apps <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 4l3.5 3.5L9 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
-              <ul class="nav-dropdown-menu">
-                <li><a href="/planly/">Planly</a></li>
-                <li><a href="/stead/">Stead</a></li>
-                <li><a href="/soniceject/">SonicEject</a></li>
-                <li><a href="/qrgen/">QR Creator</a></li>
-              </ul>
-            </details>
+            <div class="nav-dropdown">
+              <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+                Apps
+                <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
+                  <path d="M2 4l3.5 3.5L9 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <!-- Populated by site.js's NAV_APPS list — see the "Apps nav
+                   dropdown — canonical list" block at the top of the file.
+                   Do not hand-edit; add new apps to NAV_APPS instead. -->
+              <ul class="nav-dropdown-menu"></ul>
+            </div>
+            <span class="nav-sep" aria-hidden="true"></span>
             <a href="mailto:support@fosterapps.com">Contact</a>
           </nav>
         </div>
@@ -171,7 +175,7 @@
       </footer>
     </main>
 
-    <script src="../assets/js/site.js?v=3"></script>
+    <script src="../assets/js/site.js?v=8"></script>
     <script>
       document.getElementById('year').textContent = String(new Date().getFullYear());
     </script>

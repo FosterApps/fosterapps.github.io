@@ -1,6 +1,61 @@
 (() => {
   const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
 
+  // ── Apps nav dropdown — canonical list ────────────────────────────
+  // Single source of truth for every page's "Apps" dropdown. Previously
+  // each page hand-carried its own <li> list, which drifted badly — by the
+  // time this was caught, dropdowns ranged from 0 entries (planly, still
+  // on the old <details>/<summary> markup) to 9 (index.html, silverid),
+  // with most sub-pages stuck at whatever the list looked like when that
+  // page was last touched. Adding NAV_APPS here and generating every
+  // page's menu from it means a new app is a one-line addition, applied
+  // everywhere on next load — no page to forget.
+  //
+  // Convention (matches the pre-refactor pages): a page's own dropdown
+  // DOES include itself — e.g. silverid/index.html's menu lists Silver
+  // Hallmark Identifier too. So this list renders identically on every
+  // page, current page included, no filtering.
+  //
+  // milestone is a real active app (see app-factory active-apps-scope)
+  // but has no /milestone/assets/ folder yet — no icon to render — so
+  // it's deliberately left out of this list until that's fixed, rather
+  // than rendering a broken <img>. Same reasoning applies to any future
+  // app before its assets exist.
+  const NAV_APPS = [
+    { slug: 'planly',     name: 'Planly',                     sub: 'Focused daily planner' },
+    { slug: 'stead',      name: 'Stead',                      sub: 'Home maintenance tracker' },
+    { slug: 'soniceject', name: 'SonicEject',                 sub: 'One-tap audio source switcher' },
+    { slug: 'qrgen',      name: 'QR Creator',                 sub: 'Instant QR code generator' },
+    { slug: 'headache',   name: 'Headache Journal',           sub: 'Migraine &amp; headache tracker' },
+    { slug: 'moldid',     name: 'Mold Identifier',            sub: 'AI mold ID &amp; reference' },
+    { slug: 'phpusd',     name: 'PHP to USD Conversion',      sub: 'Peso &amp; dollar exchange rate' },
+    { slug: 'duct',       name: 'HVAC Ductulator',            sub: 'Duct sizing calculator' },
+    { slug: 'silverid',   name: 'Silver Hallmark Identifier', sub: 'AI silver mark ID &amp; reference' },
+    { slug: 'spiritbox',  name: 'Spirit Box',                 sub: 'Ghost detector &amp; EVP recorder' },
+  ];
+
+  // Renders NAV_APPS into any `.nav-dropdown-menu` found on the page.
+  // Path prefix is derived from the menu's own position: a sub-page menu
+  // sits one level deep (needs `../slug/`), the homepage's sits at root
+  // (needs `slug/`) — detected via `document.body.dataset.navRoot` so this
+  // doesn't have to guess from the URL. Pages that don't opt in (no
+  // .nav-dropdown-menu in their HTML — e.g. payments/, 404.html) are
+  // untouched, matching the pre-existing guarded-block convention below.
+  document.querySelectorAll('.nav-dropdown-menu').forEach((menu) => {
+    const prefix = document.body.dataset.navRoot === 'true' ? '' : '../';
+    menu.innerHTML = NAV_APPS.map((app) => `
+      <li>
+        <a href="${prefix}${app.slug}/">
+          <img class="nav-app-icon" src="${prefix}${app.slug}/assets/icon.png" alt="${app.name} icon">
+          <span class="nav-app-text">
+            <span class="nav-app-name">${app.name}</span>
+            <span class="nav-app-sub">${app.sub}</span>
+          </span>
+          <svg class="nav-app-arrow" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2.5 5h5m0 0L5 2.5M7.5 5L5 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </li>`).join('');
+  });
+
   // ── Header scroll shadow ───────────────────────────────────────
   const header = document.querySelector('.header');
   if (header) {

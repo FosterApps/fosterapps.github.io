@@ -1,7 +1,7 @@
 # SEO Bible — fosterapps.com Playbook
 
 > **Living document.** Add discoveries, update when strategies are validated or invalidated.
-> **Last updated:** 2026-07-14
+> **Last updated:** 2026-09-23
 > **Cross-references:** [`CLAUDE.md`](CLAUDE.md) (site maintenance: assets, CSS versioning, image sizes), factory [`docs/playbooks/ASO_BIBLE.md`](../app-factory/docs/playbooks/ASO_BIBLE.md) (App Store keyword research — the sibling channel)
 > **Source pattern:** Adam Lyttle's SEO-site strategy (landing + guides + FAQ pages per app) adapted to this static-HTML portfolio site.
 
@@ -231,22 +231,27 @@ Sitemap: https://fosterapps.com/sitemap.xml
 | Slug | Tier | Landing | Head tags + JSON-LD | Guides | In sitemap | Notes |
 |------|------|---------|--------------------|--------|-----------|-------|
 | stead | B | ✅ live | ❌ no meta desc, no JSON-LD | ❌ none | ✅ | Live app; best Tier B candidate |
-| headache | C* | ✅ live | ❌ | — | ❌ **missing** | Live app missing from sitemap — fix first |
+| headache | C* | ✅ live | ❌ no meta desc, no JSON-LD | — | ✅ (fixed 2026-09-23) | |
 | soniceject | B | ✅ live | ❌ | ❌ | ✅ | 1–2 guides max ("water out of iPhone speaker") |
 | qrgen | C | ✅ live | ❌ | — | ✅ | Head terms owned by giants; hygiene only |
-| milestone | C | ✅ live | ❌ | — | ❌ **missing** | |
-| phpusd | C | ✅ live | ❌ | — | ❌ **missing** | Currency SERP = xe.com; hygiene only |
+| milestone | C | ✅ live | ❌ no meta desc, no JSON-LD | — | ✅ (fixed 2026-09-23) | |
+| phpusd | C | ✅ live | ❌ no meta desc, no JSON-LD | — | ✅ (fixed 2026-09-23) | Currency SERP = xe.com; hygiene only |
+| moldid | C | ✅ live | ❌ no meta desc, no JSON-LD | — | ✅ (fixed 2026-09-23) | |
 | planly | C | ✅ live | ❌ | — | ✅ | External app |
-| duct | **A** | ✅ live (marketing only) | ❌ no meta desc*, no JSON-LD | ❌ none | ❌ **missing** | *og:/twitter: tags + description present, no JSON-LD/schema yet. Still needs: sitemap entry, web calculator, 5–8 guide pages, FAQ schema — landing page alone ≠ Tier A done |
+| duct | **A** | ✅ live (marketing only) | ❌ no meta desc*, no JSON-LD | ❌ none | ✅ | *og:/twitter: tags + description present, no JSON-LD/schema yet. Still needs: web calculator, 5–8 guide pages, FAQ schema — landing page alone ≠ Tier A done |
+| silverid | C | ✅ live | ✅ meta desc, SoftwareApplication + FAQPage JSON-LD | — | ✅ | Reference template for future landing pages |
+| spiritbox | C | ✅ live (2026-09-23) | ✅ meta desc, SoftwareApplication + FAQPage JSON-LD | ❌ none | ✅ (2026-09-23) | Entertainment app, no aggregateRating yet (0 ratings via Astro — omit until real ratings exist). Guide candidates identified but not built: "how does a spirit box work," "what is EVP," "how to use a spirit board safely," "what causes EMF spikes in a house," "best ghost hunting apps for iPhone." Revisit if GSC shows impressions. |
 | asphalt | **A** | ❌ not started | — | ❌ | ❌ | Build with calculator at scaffold-complete, before ship |
 | gravel | **A** | ❌ not started | — | ❌ | ❌ | Same treatment when scaffolded |
 
-### Known site-wide gaps (as of 2026-07-14 audit)
-1. `sitemap.xml` lists only planly/stead/soniceject/qrgen — headache, milestone, phpusd missing
-2. **Zero meta descriptions** on any app page
-3. **Zero JSON-LD** anywhere (no SoftwareApplication, no FAQPage)
-4. No FAQ or guide content exists yet on any page
+### Known site-wide gaps (as of 2026-09-23 audit)
+1. ~~`sitemap.xml` lists only planly/stead/soniceject/qrgen~~ — fixed 2026-09-23: headache, milestone, moldid, phpusd, spiritbox all added (landing + privacy, 10 entries). `duct/terms/index.html` still not in sitemap — unclear if that's intentional (terms pages are sometimes deliberately unindexed); not resolved, needs a call.
+2. **Zero meta descriptions** on 9 of 11 live app pages — only silverid and spiritbox have them
+3. **Zero JSON-LD** on 9 of 11 live app pages — only silverid and spiritbox have SoftwareApplication + FAQPage
+4. No FAQ or guide content exists yet on any page except silverid's and spiritbox's FAQ sections (no guide pages anywhere)
 5. GSC verification/submission status unconfirmed — verify at search.google.com/search-console before assuming pages are indexed
+6. ~~Nav dropdown drift~~ — fixed 2026-09-23: was hand-duplicated per-page (ranged 0–9 entries depending on last edit), now generated from a single `NAV_APPS` list in `site.js` (see [`CLAUDE.md`](CLAUDE.md)). `planly/index.html`'s outdated `<details>/<summary>` nav markup also fixed to the standard pattern in the same pass.
+7. ~~Stale `?v=` CSS/JS versions~~ — fixed 2026-09-23: 8 files (404.html + 7 privacy pages) were stuck at `?v=3` while live is `?v=8`; all bumped.
 
 ---
 
@@ -309,3 +314,12 @@ GUIDE PAGE CHECKLIST — /<slug>/guides/<kw-slug>/
 - Key strategic insight: for calculator apps, an embedded working web calculator beats the transcript's generic guide-page template — tool pages match query intent, earn backlinks, and mirror the factory's kw-hunt validation channel on a second surface.
 - Tiering decision: currency (phpusd/inrusd) and qrgen are hygiene-only — their web SERPs are owned by xe.com-class incumbents, unlike their App Store SERPs. Web and App Store competition must be validated independently.
 - headache classified C* (hygiene now, guides deferred): YMYL — Google holds health content on anonymous static sites to a higher E-E-A-T bar.
+
+### 2026-09-23
+- Built spiritbox's landing + confirmed its privacy page (Tier C — landing + full head tags + JSON-LD, no guides yet; entertainment app, revisit tier if GSC shows real demand for the identified guide candidates).
+- **Entertainment-app FAQ/JSON-LD had to stay legally careful**: spiritbox is a paranormal entertainment app with a real disclaimer requirement (procedurally generated, not real spirit communication) baked into onboarding and the App Store review notes. The landing page's hero subhead, FAQ answers, and JSON-LD description all restate that disclaimer — an entertainment app's SEO copy can't imply the product does something real it doesn't (same principle as [[feedback-aso-keywords-must-match-features]] in the factory repo, just applied to web copy instead of ASO keywords).
+- `aggregateRating` correctly omitted — 0 ratings via Astro `get_app_ratings` for a just-shipped app. Re-check before the next touch-up once real ratings exist.
+- Found and fixed three unrelated pre-existing site-wide gaps while in here (see the "Known site-wide gaps" list above): sitemap missing 4 live apps, nav dropdown badly drifted per-page (0–9 entries depending on when each page was last touched), and most privacy pages + 404.html stuck 5 versions behind on `site.css`/`site.js`.
+- **Nav dropdown converted from hand-duplicated per-page HTML to a generated component** (`NAV_APPS` array in `site.js`, empty `<ul>` shell in every page's HTML) specifically so this class of drift can't recur — a new app is now a one-line addition in one file, not an edit-11-files task. See `CLAUDE.md`'s "Nav dropdown is generated, not hand-written" note.
+- `milestone` has no `/milestone/assets/` folder at all (no icon), so it was deliberately left out of `NAV_APPS` rather than rendering a broken image — still needs its own asset pass before it can join the nav.
+- `duct/terms/index.html` exists but isn't in the sitemap — left unresolved, unclear if that's intentional (terms pages are sometimes deliberately unindexed).
