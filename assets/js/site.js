@@ -33,6 +33,7 @@
     { slug: 'silverid',   name: 'Silver Hallmark Identifier', sub: 'AI silver mark ID &amp; reference' },
     { slug: 'spiritbox',  name: 'Spirit Box',                 sub: 'Ghost detector &amp; EVP recorder' },
     { slug: 'dartscore',  name: 'Darts Scorer',               sub: 'X01 &amp; Cricket dartboard scoreboard' },
+    { slug: 'sourdough',  name: 'Sourdough Tracker',          sub: 'Starter feeding log &amp; dough calculator' },
   ];
 
   // Renders NAV_APPS into any `.nav-dropdown-menu` found on the page.
