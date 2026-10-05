@@ -135,4 +135,24 @@
     <lastmod>2026-10-03</lastmod>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://fosterapps.com/snooker/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fosterapps.com/snooker/privacy/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fosterapps.com/conduitbend/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fosterapps.com/conduitbend/privacy/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <priority>0.6</priority>
+  </url>
 </urlset>
