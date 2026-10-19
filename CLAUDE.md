@@ -85,6 +85,24 @@ done
    - App grid: add `.app-card` entry
    - Hero screen strip: optionally add one `screen-1.jpg` to the 5-image strip
 5. Update CSS/JS version query string if `site.css` or `site.js` changed: `?v=N`
+6. Add the app to `stores.json` and run `node tools/store-buttons.mjs <slug>` (see below)
+
+---
+
+## Store buttons (App Store / Google Play) are generated — never hand-write them
+
+`stores.json` is the single source of truth for every app page's download buttons:
+
+```json
+"spiritbox": { "name": "Spirit Box", "color": "#7A4AA8",
+               "ios": { "status": "soon" },
+               "android": { "status": "live", "package": "com.fosterapps.spiritbox" } }
+```
+
+- `status: "live"` renders a solid button linking to the listing (`ios.id` = numeric App Store id, `android.package` = Play package). `"soon"` renders a muted, dashed "Coming soon to …" label that is not a link. Leave a store out if the app isn't planned for it.
+- After any change run `node tools/store-buttons.mjs` (all apps) or `node tools/store-buttons.mjs <slug>`; `--check` previews without writing. It rewrites only the regions between `<!-- store-buttons:hero|cta -->` / `<!-- /store-buttons -->` and `<!-- store-eyebrow -->` markers, plus the Smart App Banner meta and the JSON-LD `url`, and fails if any other `apps.apple.com` link to a non-live id remains on the page.
+- **Before flipping an app to `live`, verify the id** — `curl "https://itunes.apple.com/lookup?bundleId=com.fosterapps.<slug>&country=us"` must return `resultCount: 1`. (The headache page linked a non-existent id for months.)
+- Styles: `assets/css/stores.css` (linked by the script; bump `STORES_CSS_VERSION` in the script when it changes).
 
 ---
 

@@ -1,0 +1,18 @@
+{
+  "_doc": "Single source of truth for every app page's download buttons. status: \"live\" (button links to the listing) or \"soon\" (muted, not a link). Omit a store the app is not planned for. After any change run: node tools/store-buttons.mjs (see CLAUDE.md). App Store ids verified against itunes.apple.com/lookup on 2026-10-19.",
+  "duct":       { "name": "Ductulator",            "color": "#00c6ff", "ios": { "status": "live", "id": "6790622859" } },
+  "headache":   { "name": "Migraine Tracker",      "color": "#9040D0", "ios": { "status": "live", "id": "6771950941" } },
+  "milestone":  { "name": "Milestone",             "color": "#4F46E5", "ios": { "status": "soon" } },
+  "moldid":     { "name": "Mold Identifier",       "color": "#E9932B", "ios": { "status": "live", "id": "6793710155" } },
+  "phpusd":     { "name": "PHP to USD",            "color": "#71B280", "ios": { "status": "live", "id": "6790058242" } },
+  "planly":     { "name": "Planly",                "color": "#4F46E5", "ios": { "status": "live", "id": "6755067558" } },
+  "qrgen":      { "name": "QR Code Maker",         "color": "#4F46E5", "ios": { "status": "live", "id": "6769885631" } },
+  "silverid":   { "name": "Silver Hallmark ID",    "color": "#7C93A8", "ios": { "status": "live", "id": "6803255730" } },
+  "soniceject": { "name": "Water Eject",           "color": "#4F46E5", "ios": { "status": "live", "id": "6762480310" } },
+  "sourdough":  { "name": "Sourdough Tracker",     "color": "#B4542A", "ios": { "status": "soon" } },
+  "spiritbox":  { "name": "Spirit Box",            "color": "#7A4AA8", "ios": { "status": "soon" }, "android": { "status": "soon", "package": "com.fosterapps.spiritbox" } },
+  "stead":      { "name": "Stead",                 "color": "#4F46E5", "ios": { "status": "live", "id": "6760983524" } },
+  "dartscore":  { "name": "Dart Scorer",           "color": "#4F46E5", "ios": { "status": "soon" } },
+  "conduitbend":{ "name": "Conduit Bending Calc",  "color": "#F5B700", "ios": { "status": "soon" } },
+  "snooker":    { "name": "Snooker Scoreboard",    "color": "#1B8A55", "ios": { "status": "soon" } }
+}
