@@ -91,17 +91,18 @@ done
 
 ## Store buttons (App Store / Google Play) are generated — never hand-write them
 
-`stores.json` is the single source of truth for every app page's download buttons:
+`stores.json` says which stores each app is **planned** for. Whether it is **live** is never written by hand — `tools/store-buttons.mjs` asks the stores:
 
 ```json
-"spiritbox": { "name": "Spirit Box", "color": "#7A4AA8",
-               "ios": { "status": "soon" },
-               "android": { "status": "live", "package": "com.fosterapps.spiritbox" } }
+"spiritbox": { "name": "Ghost Detector: Spirit Box Pro", "color": "#7A4AA8", "ios": {}, "android": {} }
 ```
 
-- `status: "live"` renders a solid button linking to the listing (`ios.id` = numeric App Store id, `android.package` = Play package). `"soon"` renders a muted, dashed "Coming soon to …" label that is not a link. Leave a store out if the app isn't planned for it.
-- After any change run `node tools/store-buttons.mjs` (all apps) or `node tools/store-buttons.mjs <slug>`; `--check` previews without writing. It rewrites only the regions between `<!-- store-buttons:hero|cta -->` / `<!-- /store-buttons -->` and `<!-- store-eyebrow -->` markers, plus the Smart App Banner meta and the JSON-LD `url`, and fails if any other `apps.apple.com` link to a non-live id remains on the page.
-- **Before flipping an app to `live`, verify the id** — `curl "https://itunes.apple.com/lookup?bundleId=com.fosterapps.<slug>&country=us"` must return `resultCount: 1`. (The headache page linked a non-existent id for months.)
+- App Store: `itunes.apple.com/lookup?bundleId=com.fosterapps.<slug>` (override with `ios.bundleId`, or `ios.id` for an app outside the factory, e.g. planly). A result = live, and its id is the link.
+- Google Play: the public listing for `com.fosterapps.<slug>` (override with `android.package`). HTTP 200 = live; 404 = not public yet (internal testing counts as not public).
+- Live renders a solid "Download on the App Store" / "Get it on Google Play" link; not live renders a muted dashed "Coming soon to …" label (not a link). Leave a store out if the app isn't planned for it. `name` = the store listing name (used in button labels).
+- **The browser never reads `stores.json`** — the pages are static HTML. The script writes the buttons into them: only the regions between `<!-- store-buttons:hero|cta -->` / `<!-- /store-buttons -->` and `<!-- store-eyebrow -->` markers, plus the Smart App Banner meta and the JSON-LD `url`. It fails if any other `apps.apple.com` link to a non-live id remains on the page. If any store lookup fails, it writes nothing.
+- **Automatic:** `.github/workflows/store-buttons.yml` runs it daily and on every push that touches `stores.json` or the script, and commits any change — so an app flips to "Download" within a day of approval. To see a change immediately (or locally), run `node tools/store-buttons.mjs` (`--check` previews; pass slugs to limit it).
+- New pages: the factory's `pnpm site-pages <slug>` writes the markers, adds the `stores.json` entry (App Store planned) and runs the script. Add `"android": {}` when an app is going to Play.
 - Styles: `assets/css/stores.css` (linked by the script; bump `STORES_CSS_VERSION` in the script when it changes).
 
 ---

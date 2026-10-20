@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="dark" />
 
-    <title>Snooker Scoreboard – Frame, Break &amp; Foul Scorer</title>
+    <title>Snooker Scoreboard Scorer – Breaks, Fouls &amp; Free Ball</title>
     <meta
       name="description"
       content="A two-player snooker scoreboard that knows the rules — reds and colours tracked for you, live breaks, fouls, the re-spotted black and undo that works even after the frame ends. No account required."
     />
 
-    <meta property="og:title" content="Snooker Scoreboard – Frame, Break &amp; Foul Scorer" />
+    <meta property="og:title" content="Snooker Scoreboard Scorer – Breaks, Fouls &amp; Free Ball" />
     <meta property="og:description" content="Tap the ball potted. Live breaks, fouls, re-spotted black and full undo. Free to try." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://fosterapps.com/snooker/" />
@@ -21,11 +21,12 @@
     <link rel="canonical" href="https://fosterapps.com/snooker/" />
 
     <link rel="stylesheet" href="../assets/css/site.css?v=8" />
+    <link rel="stylesheet" href="../assets/css/stores.css?v=1" />
 
     <link rel="icon" type="image/png" href="/assets/FosterAppsLogo.png" />
 
     <style>
-      /* ── Snooker Scoreboard orange overrides ─────────────────────────────────── */
+      /* ── Snooker Scoreboard Scorer orange overrides ─────────────────────────────────── */
       :root { --dart: #4ADE80; }
 
       body::before {
@@ -165,7 +166,7 @@
           <div style="max-width:680px;margin:0 auto;text-align:center;padding:72px 0 48px;">
             <div class="hero-badge">
               <span class="dot" aria-hidden="true"></span>
-              Coming to the App Store
+              <!-- store-eyebrow -->Coming soon to the App Store<!-- /store-eyebrow -->
             </div>
             <h1 class="h1" style="margin-bottom:18px;">
               Score the frame,<br><span class="orange">not the argument.</span>
@@ -174,10 +175,11 @@
               A fast, no-fuss snooker scoreboard for two players. Tap the ball that went down — it tracks what's on, your live break, the points left and the snookers required.
             </p>
             <div class="actions" style="justify-content:center;">
-              <a class="button primary" href="#download">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                Download Free
-              </a>
+              <!-- store-buttons:hero -->
+<div class="store-buttons">
+<span class="store-btn store-btn--soon" role="note" aria-label="Snooker Scoreboard Scorer is coming soon to the App Store"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg><span class="store-btn__text"><span class="store-btn__eyebrow">Coming soon to the</span><span class="store-btn__store">App Store</span></span></span>
+</div>
+<!-- /store-buttons -->
             </div>
           </div>
         </div>
@@ -214,7 +216,7 @@
             <div class="card" style="padding:28px;">
               <div style="font-size:13px;font-weight:600;color:var(--dart);letter-spacing:0.06em;margin-bottom:10px;">SHARE</div>
               <h3 style="font-size:18px;margin-bottom:8px;">Share the Result</h3>
-              <p>Send the frame or match result as an image, and read the score from across the room in the full-screen scoreboard view.</p>
+              <p>Send the frame or match result as an image, and read the score from across the room in the landscape scoreboard view. The screen stays awake while you score.</p>
             </div>
             <div class="card" style="padding:28px;">
               <div style="font-size:13px;font-weight:600;color:var(--dart);letter-spacing:0.06em;margin-bottom:10px;">REMATCH</div>
@@ -283,10 +285,11 @@
           <div style="max-width:540px;margin:0 auto;text-align:center;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:28px;padding:52px 40px;">
             <h2 style="font-size:clamp(24px,3vw,36px);margin:0 0 14px;letter-spacing:-0.02em;">Free to download.</h2>
             <p class="subhead" style="font-size:16px;margin:0 0 28px;">Start a match in seconds. No account needed.</p>
-            <a class="button primary" href="#download" style="font-size:16px;padding:14px 28px;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-              Get Snooker Scoreboard on the App Store
-            </a>
+            <!-- store-buttons:cta -->
+<div class="store-buttons store-buttons--cta">
+<span class="store-btn store-btn--soon" role="note" aria-label="Snooker Scoreboard Scorer is coming soon to the App Store"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg><span class="store-btn__text"><span class="store-btn__eyebrow">Coming soon to the</span><span class="store-btn__store">App Store</span></span></span>
+</div>
+<!-- /store-buttons -->
           </div>
         </div>
       </section>
@@ -308,14 +311,14 @@
           </ul>
           <div class="hr" style="margin-top:24px;"></div>
           <h2 style="margin-top:20px;">Privacy policy</h2>
-          <p class="muted">Read the full policy at the <a href="privacy/">Snooker Scoreboard privacy page</a>.</p>
+          <p class="muted">Read the full policy at the <a href="privacy/">Snooker Scoreboard Scorer privacy page</a>.</p>
         </div>
       </section>
 
       <footer class="footer">
         <div class="container">
           <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;">
-            <div>© <span id="year"></span> Foster Apps LLC · <span class="muted">Snooker Scoreboard</span></div>
+            <div>© <span id="year"></span> Foster Apps LLC · <span class="muted">Snooker Scoreboard Scorer</span></div>
             <div style="display:flex;gap:14px;flex-wrap:wrap;">
               <a href="/">Home</a>
               <a href="mailto:support@fosterapps.com">Contact</a>

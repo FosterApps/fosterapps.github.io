@@ -1,16 +1,24 @@
 #!/usr/bin/env node
 /**
- * Renders every app page's download buttons from stores.json.
+ * Renders every app page's download buttons from stores.json and the stores' own live status.
  *
  *   node tools/store-buttons.mjs              all apps in stores.json
  *   node tools/store-buttons.mjs spiritbox    just these slugs
  *   node tools/store-buttons.mjs --check      print what would change, write nothing
  *
+ * stores.json only says which stores an app is planned for. Whether it is live is asked of the stores:
+ *   - App Store: itunes.apple.com/lookup by bundle id (default com.fosterapps.<slug>; set ios.bundleId,
+ *     or ios.id for an app outside the factory). A result = live, and its trackId is the link.
+ *   - Google Play: the public listing page for android.package (default com.fosterapps.<slug>).
+ *     HTTP 200 = live, 404 = not published (internal testing only, or never released).
+ * If any lookup fails (network, rate limit), nothing is written — a blip must never flip a live app to
+ * "Coming soon". Runs daily in .github/workflows/store-buttons.yml, so buttons follow the stores.
+ *
  * Per page (<slug>/index.html):
  *   - Download buttons live between <!-- store-buttons:hero|cta --> and <!-- /store-buttons -->.
  *     First run converts the old hand-written App Store anchors (apps.apple.com or #download) into
  *     those regions: the first becomes "hero", the rest "cta".
- *   - status "live" -> a link to the listing; "soon" -> a muted "Coming soon to ..." label (not a link).
+ *   - live -> a link to the listing; not live -> a muted "Coming soon to ..." label (not a link).
  *   - <meta name="apple-itunes-app"> (Safari's Smart App Banner) only while the App Store listing is live.
  *   - The SoftwareApplication JSON-LD "url" points at a live listing, or at the page itself when none is live.
  *   - The hero kicker ("Available on the App Store") lives between <!-- store-eyebrow --> markers and says
@@ -30,6 +38,61 @@ const only = args.filter((a) => !a.startsWith('--'));
 
 const config = JSON.parse(readFileSync(join(ROOT, 'stores.json'), 'utf8'));
 const slugs = Object.keys(config).filter((k) => !k.startsWith('_') && (only.length === 0 || only.includes(k)));
+
+// ── Live status from the stores ───────────────────────────────────────────────
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/** Retries transient failures (Apple's lookup rate-limits with an HTML page); throws after the last try. */
+async function withRetry(what, fn) {
+  let last;
+  for (let attempt = 1; attempt <= 4; attempt++) {
+    try {
+      return await fn();
+    } catch (e) {
+      last = e;
+      await sleep(3000 * attempt);
+    }
+  }
+  throw new Error(`${what}: ${last.message}`);
+}
+
+async function appStoreId(slug, ios) {
+  const query = ios.id ? `id=${ios.id}` : `bundleId=${ios.bundleId ?? `com.fosterapps.${slug}`}`;
+  return withRetry(`App Store lookup ${query}`, async () => {
+    const res = await fetch(`https://itunes.apple.com/lookup?${query}&country=us`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const json = JSON.parse(await res.text()); // throws on Apple's HTML rate-limit page -> retried
+    return json.resultCount > 0 ? String(json.results[0].trackId) : null;
+  });
+}
+
+async function playLive(pkg) {
+  return withRetry(`Google Play listing ${pkg}`, async () => {
+    const res = await fetch(`https://play.google.com/store/apps/details?id=${pkg}&hl=en_US&gl=US`);
+    if (res.status === 200) return true;
+    if (res.status === 404) return false;
+    throw new Error(`HTTP ${res.status}`);
+  });
+}
+
+try {
+  for (const slug of slugs) {
+    const app = config[slug];
+    if (app.ios) {
+      const id = await appStoreId(slug, app.ios);
+      app.ios.status = id ? 'live' : 'soon';
+      if (id) app.ios.id = id;
+      await sleep(400);
+    }
+    if (app.android) {
+      app.android.package ??= `com.fosterapps.${slug}`;
+      app.android.status = (await playLive(app.android.package)) ? 'live' : 'soon';
+    }
+  }
+} catch (e) {
+  console.error(`✗ store lookup failed, nothing written: ${e.message}`);
+  process.exit(1);
+}
 
 const APPLE_SVG = '<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>';
 const PLAY_SVG = '<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 1.8c-.3.3-.5.8-.5 1.4v17.6c0 .6.2 1.1.5 1.4l.1.1 9.9-9.9v-.2L3.7 1.7l-.1.1zm13.3 13.4-3.3-3.3v-.2l3.3-3.3.1.1 3.9 2.2c1.1.6 1.1 1.7 0 2.3l-3.9 2.2h-.1zm.1-.1L13.6 12l-10 10c.4.4 1 .4 1.7.1l11.7-7zm0-6.2L5.3 1.9c-.7-.4-1.3-.3-1.7.1l10 10 3.4-3z"/></svg>';
@@ -119,7 +182,7 @@ for (const slug of slugs) {
     html = html.replace(eyebrowRe, `<!-- store-eyebrow -->${eyebrow(app)}<!-- /store-eyebrow -->`);
   } else {
     html = html.replace(
-      /(<span class="dot" aria-hidden="true"><\/span>\s*)Available on the App Store/,
+      /(<span class="dot" aria-hidden="true"><\/span>\s*)(?:Available on the App Store|Coming to the App Store)/,
       `$1<!-- store-eyebrow -->${eyebrow(app)}<!-- /store-eyebrow -->`,
     );
   }
