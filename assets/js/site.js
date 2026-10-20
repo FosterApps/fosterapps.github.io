@@ -34,7 +34,7 @@
     { slug: 'spiritbox',  name: 'Spirit Box',                 sub: 'Ghost detector &amp; EVP recorder' },
     { slug: 'dartscore',  name: 'Darts Scorer',               sub: 'X01 &amp; Cricket dartboard scoreboard' },
     { slug: 'sourdough',  name: 'Sourdough Tracker',          sub: 'Starter feeding log &amp; dough calculator' },
-    { slug: 'snooker', name: 'Snooker Scoreboard', sub: 'Scorer, Breaks &amp; Frame Counter' },
+    { slug: 'snooker', name: 'Snooker Scoreboard Scorer', sub: 'Breaks, Fouls, Free Ball, Undo' },
     { slug: 'conduitbend', name: 'Conduit Bending Calculator', sub: 'EMT Offset &amp; Saddle Bends' },
   ];
 
