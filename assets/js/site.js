@@ -31,7 +31,7 @@
     { slug: 'phpusd',     name: 'PHP to USD Conversion',      sub: 'Peso &amp; dollar exchange rate' },
     { slug: 'duct',       name: 'HVAC Ductulator',            sub: 'Duct sizing calculator' },
     { slug: 'silverid',   name: 'Silver Hallmark Identifier', sub: 'AI silver mark ID &amp; reference' },
-    { slug: 'spiritbox',  name: 'Spirit Box',                 sub: 'Ghost detector &amp; EVP recorder' },
+    { slug: 'spiritbox',  name: 'Spirit Box',                 sub: 'Ghost box &amp; EMF detector' },
     { slug: 'dartscore',  name: 'Darts Scorer',               sub: 'X01 &amp; Cricket dartboard scoreboard' },
     { slug: 'sourdough',  name: 'Sourdough Tracker',          sub: 'Starter feeding log &amp; dough calculator' },
     { slug: 'snooker', name: 'Snooker Scoreboard Scorer', sub: 'Breaks, Fouls, Free Ball, Undo' },
